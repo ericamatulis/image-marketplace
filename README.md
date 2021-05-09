@@ -17,7 +17,7 @@ It uses sqlite3 to store the images that have been added to the image repository
 * `personal/forms.py` includes the custom form for users to edit their products
 * CSS and JS files are included in `personal/static/personal/`
 * HTML templates are included in `personal/templates/personal/`
-* `tests.py` contains basic tests against the data model and user access to different pages
+* `personal/tests.py` contains basic tests against the data model and user access to different pages
 
 ## Usage
 
