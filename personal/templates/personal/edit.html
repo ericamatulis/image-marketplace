@@ -1,0 +1,63 @@
+{% extends "personal/header.html" %}
+{% block content %}
+
+
+<div class="header">
+	<b>Update: </b>{{ form.product_name.value }}
+
+</div>
+<div id="product_form" class="center">
+	<div>
+		<img src="/media/{{ form.product_image.value }}" class="none">
+		</div>
+		<div>
+			<form action="" method="post" enctype="multipart/form-data" class="uploadform">
+            {% csrf_token %}
+            
+				<p style="font-size:14px;">
+                {{ form.product_image }}
+            </p>
+				<p>
+					<label>{{form.product_name.label}}</label>
+                {{ form.product_name }}
+            
+				</p>
+				<p>
+					<label>{{form.product_description.label}}</label>
+                {{ form.product_description }}
+            
+				</p>
+				<p>
+					<label>{{form.product_quantity.label}}</label>
+                {{ form.product_quantity }}
+            
+				</p>
+				<p>
+					<label>{{form.product_price.label}}</label>
+                {{ form.product_price }}
+            
+				</p>
+				<p>
+					<label>{{form.categories.label}}</label>
+                {{ form.categories }}
+            
+				</p>
+				<p>
+					<label>{{form.is_active.label}}</label>
+                {{ form.is_active }}
+            
+				</p>
+				<div style="display: flex; align-items: center;justify-content: center">
+					<div>
+						<input type="submit" value="Submit">
+						</div>
+						<div>
+							<a class="return" href="/your_market">Return</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+{% endblock %}

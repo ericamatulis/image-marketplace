@@ -1,0 +1,68 @@
+{% extends "personal/header.html" %}
+{% block content %}
+
+
+<div class="header">
+	<b>Your Transactions</b> (Total of ${{total}})
+
+</div>
+<p style="text-align: center">Bought Items</p>
+<table id="table">
+	<tr>
+		<th>Date</th>
+		<th>Product</th>
+		<th>Seller</th>
+		<th>Quantity</th>
+		<th>Price</th>
+		<th>Order Total</th>
+	</tr>
+        {% for order in order_list %}
+
+  
+	<tr>
+		<td>{{ order.date }}</td>
+		<td>
+			<a type="button" href="/product?product={{order.product.pk}}">{{ order.product }}</a>
+		</td>
+		<td>{{ order.seller }}</td>
+		<td>{{ order.quantity }}</td>
+		<td>${{ order.price }}</td>
+		<td>${{ order.total }}</td>
+	</tr>
+        {% endfor %}
+
+
+</table>
+<br>
+	<br>
+		<p style="text-align: center">Sold Items</p>
+		<table class="sold" id="table">
+			<tr>
+				<th>Date</th>
+				<th>Product</th>
+				<th>Customer</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Order Total</th>
+			</tr>
+        {% for order in sold_list %}
+
+  
+			<tr>
+				<td>{{ order.date }}</td>
+				<td>
+					<a type="button" href="/product?product={{order.product.pk}}">{{ order.product }}</a>
+				</td>
+				<td>{{ order.customer }}</td>
+				<td>{{ order.quantity }}</td>
+				<td>${{ order.price }}</td>
+				<td>${{ order.total }}</td>
+			</tr>
+        {% endfor %}
+
+
+		</table>
+		<div class="center"></div>
+
+    
+{% endblock %}

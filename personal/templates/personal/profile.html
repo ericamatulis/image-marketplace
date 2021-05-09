@@ -1,0 +1,32 @@
+{% extends "personal/header.html" %}
+
+{% block content %}
+
+
+<div class="header">
+	<b>Profile</b>
+</div>
+<div class="center">
+	<ul style="list-style-type: none;">
+		<li>
+			<b>Username:</b> {{user.username|title}}
+		</li>
+		<li>
+			<b>Role:</b> {% if user.is_superuser %}Superuser{% else %}Basic{% endif %}
+		</li>
+		<li>
+			<b>Date joined:</b> {{user.date_joined}}
+		</li>
+		<li>
+			<b>Amount sold:</b> {{amount_sold}} (
+			<a href="/your_transactions">view details</a>)
+		</li>
+		<li>
+			<b>Available credit:</b> {{credit_left}}
+		</li>
+	</ul>
+</div>
+
+{% endblock %}
+
+	

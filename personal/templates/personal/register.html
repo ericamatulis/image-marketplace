@@ -1,0 +1,24 @@
+{% extends "personal/header.html" %}
+
+{% block content %}
+    
+
+<div id="register" class="register center">
+	<form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        
+		<div>
+			<input type="submit" value="Sign Up">
+			</div>
+		</form>
+		<p>If you already have an account 
+			<a href="/login" target="blank">
+				<strong>login</strong>
+			</a> instead.
+		</p>
+	</div>
+{% endblock %}    
+    
+
+	

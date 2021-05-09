@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Image Repository</title>
+		<meta charset="utf-8">
+    {% load static %}
+    
+			<script src="{% static 'personal/js/script.js' %}"></script>
+			<link rel="stylesheet" href="{% static 'personal/css/style.css' %}" type = "text/css"/>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			</head>
+			<body>
+				<nav class="navbar">
+{% include 'personal/includes/navbaritems.html' %}
+    </nav>
+				<nav hidden>
+					<div class="navbar">
+						<ul id="nav-mobile">
+                {% include 'personal/includes/navbaritems.html' %}
+            </ul>
+					</div>
+				</nav>
+
+        {% block content %}
+        {% endblock %}
+
+
+
+			</body>
+		</html>
+

@@ -1,0 +1,44 @@
+{% extends "personal/header.html" %}
+
+{% block content %}
+
+
+
+<div class="header">
+	<b>Total Sold:</b> {{amount_sold}}
+
+
+</div>
+<div class="container">
+	<!-- Your products for purchase -->
+    {% for product in product_list %}
+        
+	
+	<!-- Product Details -->
+	<div class="image {% if product.is_active is False %}inactive{% endif %}">
+		<div class="stock {% if product.product_quantity == 0 %}outofstock productowner{% endif %}">{% if product.product_quantity == 0 %}Sold out!{% else %}{{product.product_quantity}} left!{% endif %}</div>
+		<div class="price">${{product.product_price}}</div>
+		<img src="media/{{product.product_image}}" alt="{{product.product_name}}">
+			<div class="details">
+				<div class="image_text">
+					<p>{% if product.is_active is False %}(INACTIVE) {% endif %}{{product.product_name}}</p>
+				</div>
+				<div class="ownerdetailbox">
+					<div>Number sold: {{product.number_sold}}</div>
+					<div>Amount sold: ${{product.amount_sold}}</div>
+				</div>
+				<a type="button" href="edit?product={{product.pk}}">Edit</a>
+                {% if product.number_sold == 0 %}
+				
+				<a type="button" href="product/{{product.pk}}/delete">Delete</a>{% endif %}
+                
+            
+			
+			</div>
+		</div>
+    {% endfor %}
+
+	
+	</div>
+
+{% endblock %}

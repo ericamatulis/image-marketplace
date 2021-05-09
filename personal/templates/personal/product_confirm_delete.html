@@ -1,0 +1,44 @@
+{% extends "personal/header.html" %}
+
+{% block content %}
+
+{% if object.seller == user %}
+
+<div class="header">
+	<b>Image Deletion:</b> {{object}}
+
+</div>
+<div class="center">
+	<div style="margin: 0 auto; text-align: center;">
+        {% if object.number_sold > 0 %}
+        
+		<p style="text-align: center">You can't delete this product as customers have already purchased it!</p>
+		<a class="return" href="/your_market">Return</a>
+        {% else %}
+        
+		<form method="post">{% csrf_token %}
+            
+			<p>Are you sure you want to delete "{{ object }}"?</p>
+			<input type="submit" value="Yes">
+				<a class="return" href="/your_market">No</a>
+			</form>
+        {% endif %}
+    
+        
+			<div style="margin: 20px;">
+				<img src="/media/{{ object.product_image }}" class="none">
+				</div>
+			</div>
+		</div>
+
+{% else %}
+
+
+		<div class="header">
+			<b>You can't access this page!</b>
+		</div>
+
+{% endif %}
+
+
+{% endblock %}

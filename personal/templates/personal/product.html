@@ -1,0 +1,31 @@
+{% extends "personal/header.html" %}
+{% block content %}
+
+
+<div class="header">
+	<b>Product: </b>{{ product.product_name }}
+
+</div>
+<div id="product_form" class="center uploadform">
+	<div>
+		<img src="/media/{{ product.product_image }}" class="none">
+		</div>
+		<div>
+			<p>
+				<label>Product Name</label>
+                {{ product.product_name }}
+            
+			</p>
+			<p>
+				<label>Product Description</label>
+                {{ product.product_description }}
+            
+			</p>
+		</div>
+	</div>
+	<div style="width:100%; text-align: center; font-size: 14px;color: #007bff;">
+		<a type="button" href="/your_transactions">Back to transactions</a>
+	</div>
+
+
+{% endblock %}

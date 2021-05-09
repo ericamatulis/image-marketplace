@@ -1,0 +1,39 @@
+{% extends "personal/header.html" %}
+
+{% block content %}
+
+
+<div class="header">
+	<b>Available credit:</b> {{available_credit}}
+
+</div>
+<div class="container">
+	<!-- Available products for purchase -->
+    {% for product in product_list %}
+        
+	<!-- Product Form (To Purchase) -->
+	<form method="POST">
+            {% csrf_token %}
+                
+		<div class="image {% if product.product_quantity == 0 %}disabled-image{% endif %}">
+			<div class="owner">{{product.seller}}</div>
+			<div class="stock {% if product.product_quantity == 0 %}outofstock{% endif %}">{{product.product_quantity}} left!</div>
+			<div class="price">${{product.product_price}}</div>
+			<img src="media/{{product.product_image}}" alt="{{product.product_name}}">
+				<div class="details">
+					<div class="image_text">
+						<p> {{product.product_name}} </p>
+					</div>
+					<div class="pricebox">
+						<textarea hidden name='name' id="name">{{product.product_name}}</textarea>
+						<input type="number" id="quantity" name="quantity" min="0" max={{product.product_quantity}} value=0>
+							<button {% if product.product_quantity == 0 %}disabled{% endif %}>Buy</button>
+						</div>
+					</div>
+				</div>
+			</form>
+    {% endfor %}
+
+		</div>
+
+{% endblock %}

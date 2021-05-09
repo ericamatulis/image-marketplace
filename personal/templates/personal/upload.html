@@ -1,0 +1,27 @@
+{% extends "personal/header.html" %}
+{% block content %}
+
+
+<div class="header">
+	<b>Create new product</b>
+</div>
+<div class="center">
+	<div>
+		<form method="post" enctype="multipart/form-data" class="uploadform">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+			<div style="display: flex; align-items: center;justify-content: center">
+				<div>
+					<input type="submit" value="Upload">
+					</div>
+					<div>
+						<a class="return" href="/your_market">Return</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+    
+{% endblock %}
