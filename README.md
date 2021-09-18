@@ -1,5 +1,4 @@
-# imagerepository
-### Winter 2021 Back-End Development Challenge
+# Image Marketplace
 ### Erica Matulis
 
 The task given was to build an image repository. The basic functionality includes:
